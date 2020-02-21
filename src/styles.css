@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+.container-fluid {
+    width: 100%;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+  }

@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-center">
+    <app-live-code [code]="code"></app-live-code>
+    <br />
+</div>
+<div class="col-md-12">
+
+    <div *ngIf="!code" class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Attention !</h4>
+        <p>You should first generate the security code before add a payment</p>
+        <hr>
+        <p class="mb-0">Go to Generator and click on Generate button.</p>
+    </div>
+
+    <h3>Payment</h3>
+    <hr />
+
+    <app-payment-form (submitEvent)="savePayment($event)"></app-payment-form>
+    <br />
+
+    <app-payment-list [payments]="payments"></app-payment-list>
+</div>

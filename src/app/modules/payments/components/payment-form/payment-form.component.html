@@ -1,0 +1,21 @@
+<div>
+    <form [formGroup]="paymentForm" (ngSubmit)="submitForm()">
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label for="payment">Payment</label>
+                <input type="text" class="form-control" id="payment" placeholder="Payment" formControlName="payment">
+            </div>
+
+
+            <div class="form-group col-md-3">
+                <label for="ammount">Ammount</label>
+                <input type="number" class="form-control" id="ammount" placeholder="Ammount" formControlName="ammount">
+            </div>
+
+            <div class="form-group">
+                <br />
+                <button type="submit" [disabled]="!paymentForm.valid" class="btn btn-success btn-sm">ADD</button>
+            </div>
+        </div>
+    </form>
+</div>

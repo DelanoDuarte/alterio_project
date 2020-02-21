@@ -1,0 +1,15 @@
+<table class='table table-striped' cellspacing="0">
+  <tr class="text-center">
+    <th *ngFor="let h of header; let i = index"> {{i}} </th>
+  </tr>
+
+  <tbody>
+    <tr *ngFor="let first of grid; let i = index">
+      <td class="small-box" *ngFor="let second of first; let j = index">
+        <p *ngIf="grid[i][j]"> {{grid[i][j]}} </p>
+        <p *ngIf="!grid[i][j]"> - </p>
+      </td>
+    </tr>
+  </tbody>
+
+</table>

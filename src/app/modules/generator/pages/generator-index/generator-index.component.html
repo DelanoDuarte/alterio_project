@@ -1,0 +1,26 @@
+<div class="col-md-12">
+
+    <div class="d-flex justify-content-center">
+        <app-live-code [code]="code"></app-live-code>
+    </div>
+
+    <div class="col-md-12 ">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group col-md-6">
+                    <label for="character">CHARACTER</label>
+                    <input type="text" class="form-control" id="character" placeholder="CHARACTER">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <br />
+                <br />
+                <button *ngIf="!code" class="btn btn-primary float-right" (click)="generateGrid()"> Generate </button>
+                <button *ngIf="code" class="btn btn-danger float-right" (click)="stopGeneration()"> Stop </button>
+            </div>
+        </div>
+    </div>
+    <br />
+    <app-grid [grid]="grid2D" (generateGrid)="generateGrid()"></app-grid>
+
+</div>
