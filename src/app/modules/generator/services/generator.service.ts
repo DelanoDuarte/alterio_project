@@ -38,6 +38,8 @@ export class GeneratorService {
 
   stopGenerationGrid = () => {
     this.grid2D = [];
+    this.sendCodeSource.next(null);
+    this.sendCodeSource.complete();
   }
 
   generateCode = () => {

@@ -9,12 +9,11 @@ import { Payment } from 'src/app/models/Payment';
 export class PaymentListComponent implements OnInit {
 
   @Input()
-  private payments;
+  payments;
 
   get payment(): Payment[] {
     return this.payments;
   }
-
 
   constructor() { }
 

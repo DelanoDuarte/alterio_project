@@ -14,7 +14,7 @@ export class GridComponent implements OnInit {
   cols = new Array(10);
 
   @Input()
-  private grid;
+  grid;
 
   get grids(): any[][] {
     return this.grid;

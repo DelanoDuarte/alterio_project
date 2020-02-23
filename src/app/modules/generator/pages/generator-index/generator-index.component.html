@@ -7,16 +7,22 @@
     <div class="col-md-12 ">
         <div class="row">
             <div class="col-md-6">
-                <div class="form-group col-md-6">
-                    <label for="character">CHARACTER</label>
-                    <input type="text" class="form-control" id="character" placeholder="CHARACTER">
+
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="character">CHARACTER</label>
+                        <input (change)="waitCharacterTimer()" [disabled]="characterTimeoutActive" type="text"
+                            class="form-control" id="character" placeholder="CHARACTER" max="1">
+                    </div>
+                    <div class="col-md-2" *ngIf="characterTimeoutActive">
+                        <img src="assets/gifs/loading-clock.png" width="128" height="100" />
+                    </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <br />
                 <br />
-                <button *ngIf="!code" class="btn btn-primary float-right" (click)="generateGrid()"> Generate </button>
-                <button *ngIf="code" class="btn btn-danger float-right" (click)="stopGeneration()"> Stop </button>
+                <button class="btn btn-primary float-right" (click)="generateGrid()"> Generate </button>
             </div>
         </div>
     </div>

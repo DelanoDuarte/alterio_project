@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class PaymentFormComponent implements OnInit {
 
-  private paymentForm = new FormGroup({
+  paymentForm = new FormGroup({
     payment: new FormControl('', [
       Validators.required
     ]),

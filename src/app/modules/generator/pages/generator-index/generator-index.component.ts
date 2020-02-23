@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GeneratorService } from '../../services/generator.service';
-import { interval, range } from 'rxjs';
+import { interval, range, timer, } from 'rxjs';
 
 @Component({
   selector: 'app-generator-index',
@@ -13,8 +13,9 @@ export class GeneratorIndexComponent implements OnInit {
   private intervalId: number;
 
   code: string;
+  characterTimeoutActive: boolean;
 
-  private grid2D: any[][] = [];
+  grid2D: any[][] = [];
 
   get grid(): any[][] {
     return this.grid2D;
@@ -47,5 +48,11 @@ export class GeneratorIndexComponent implements OnInit {
   stopGeneration = () => {
     clearInterval(this.intervalId);
     this.generatorService.stopGenerationGrid();
+  }
+
+  waitCharacterTimer = () => {
+    this.characterTimeoutActive = true;
+    const timeout = timer(4000);
+    timeout.subscribe(() => this.characterTimeoutActive = false);
   }
 }
