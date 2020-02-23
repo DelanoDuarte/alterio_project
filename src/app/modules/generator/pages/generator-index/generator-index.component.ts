@@ -14,6 +14,7 @@ export class GeneratorIndexComponent implements OnInit {
 
   code: string;
   characterTimeoutActive: boolean;
+  character: string;
 
   grid2D: any[][] = [];
 
@@ -33,13 +34,17 @@ export class GeneratorIndexComponent implements OnInit {
     } else {
       range(1, 10).subscribe(() => this.grid2D.push(new Array(10).fill('-')));
     }
-    console.log(this.grid2D.reduce((count, row) => count + row.length, 0));
   }
 
   generateGrid = () => {
     this.intevalGenerateGrid.subscribe((i) => {
       this.intervalId = i;
-      this.generatorService.generate2dGrid();
+      if (this.character) {
+        this.generatorService.generate2dGridWithCharacater(this.character);
+      } else {
+        this.generatorService.generate2dGrid();
+
+      }
       this.generatorService.getGrid2D().subscribe(grid => this.grid2D = grid);
       this.generatorService.generateCode();
     });

@@ -31,7 +31,24 @@ export class GeneratorService {
     for (let i = 0; i < 10; i++) {
       this.grid2D[i] = [];
       for (let j = 0; j < 10; j++) {
-        this.grid2D[i][j] = Util.generateRandomLetters(1);
+        this.grid2D[i][j] = Util.generateRandomLetters(1, null);
+      }
+    }
+  }
+
+  generate2dGridWithCharacater = (character: string) => {
+    for (let i = 0; i < 2; i++) {
+      this.grid2D[i] = [];
+      for (let j = 0; j < 10; j++) {
+        if (character) {
+          this.grid2D[i][j] = character.toLowerCase();
+        }
+      }
+    }
+    for (let i = 2; i < 10; i++) {
+      this.grid2D[i] = [];
+      for (let j = 0; j < 10; j++) {
+        this.grid2D[i][j] = Util.generateRandomLetters(1, character);
       }
     }
   }
